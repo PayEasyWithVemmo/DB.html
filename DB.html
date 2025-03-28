@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>DB Checker</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .banner {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+            width: 100%;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        input {
+            display: block;
+            width: 90%;
+            max-width: 350px;
+            margin: 10px auto;
+            padding: 12px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(2px);
+            background-color: #004085;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="banner">Are you a DB?</div>
+
+    <div class="container">
+        <input type="text" id="name" placeholder="Enter your name">
+        <input type="text" id="height" placeholder="Enter your height">
+        <input type="text" id="weight" placeholder="Enter your weight">
+        <button onclick="checkDB()">Submit</button>
+    </div>
+
+    <div class="footer">
+        <p>Powered by <a href="#">Your Name</a></p>
+    </div>
+
+    <script>
+        function checkDB() {
+            // Check if all fields are filled
+            const name = document.getElementById("name").value;
+            const height = document.getElementById("height").value;
+            const weight = document.getElementById("weight").value;
+
+            if (name === "" || height === "" || weight === "") {
+                alert("Please fill in all fields.");
+                return;  // Stop the function if any field is empty
+            }
+
+            // 80% chance for "DB", 20% chance for "Not a DB"
+            let result = Math.random() < 0.8 ? "DB" : "Not a DB";
+
+            // Show popup with result
+            alert(result);
+
+            // Clear input fields after submission
+            document.getElementById("name").value = "";
+            document.getElementById("height").value = "";
+            document.getElementById("weight").value = "";
+        }
+    </script>
+
+</body>
+</html>
